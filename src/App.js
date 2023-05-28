@@ -1,25 +1,50 @@
-import React from 'react';
+import React,{useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
- const nayks=['alomgir','hero Alom','Akash','salman']
+ const nayoks=['alomgir','hero Alom','Akash','salman','bappy','shubo','habib']
  const Products=[
   {name:'photoshop',price:'$90.99'},
   {name:'ilistrator',price:'$60'},
-  {name:'pdf reader',price:'#20'}
+  {name:'pdf reader',price:'$20'},
+  {name:'premier El',price:'$70'}
 ]
+//  const ProductsNames=Products.map(product=>product.name);
+//   console.log(ProductsNames);
+
+// const ProductsNames=Products.map(product=>product);
+// console.log(ProductsNames);
+
+// const nayoksNames=nayoks.map(nayok=>nayok);
+// console.log(nayoksNames);
+
   return (
     <div className="App">
       <header className="App-header">
         <p>i am react developer</p>
+        <Counter></Counter>
+        <ul>{
+          nayoks.map(nayok =><li>{nayok}</li>)
+          }
+          {
+            Products.map(product=><li>{product.name}</li>)
+          }
+        </ul>
+        {
+          Products.map(product=> <Product product={Products[0]}></Product>)
+        }
         {/* <Person nayok={ nayks[0]} nayka='Mousumi'></Person>
         <Person nayok='salman' nayka='katrina'></Person>
         <Person nayak='josim' nayka='sabana'></Person>
         <Person nayak='sharuk' nayka='kazol'></Person> */}
-        <Product product={Products[0]}></Product>
-        <Product product={Products[1]}></Product>
-        <Product product={Products[2]}></Product>
+
+
+        {/* <Product product={Products[0]}></Product>
+        <Product product={Products[1]}></Product>     convert to map line 34
+        <Product product={Products[2]}></Product> */}
+
+
         <Person name='Munna' job='Football'></Person>
         <Person name='masum' job='Dorsok'></Person>
       </header>
@@ -39,6 +64,16 @@ function App() {
 //    </div>
 //    )
 // }
+
+function Counter(){
+  const [count, setCount] = useState(20);
+  return(
+    <div>
+    <h1>Count:{count}</h1>
+    <button>Increase</button>
+    </div>
+  )
+}
 
 function Product(props){
   const ProductStyle={
